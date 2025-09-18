@@ -1,13 +1,17 @@
-/* Reset & Global */
+/* -------------------------
+   Global & Body
+-------------------------- */
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, sans-serif;
   color: #333;
   line-height: 1.6;
-  background: #f0f4f8; /* light gray background for sides */
+  background: #0077cc; /* blue background for sides */
 }
 
-/* Navigation */
+/* -------------------------
+   Navigation
+-------------------------- */
 nav {
   background: #222;
   padding: 15px;
@@ -21,6 +25,7 @@ nav a {
   color: white;
   margin: 0 15px;
   font-weight: bold;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
@@ -29,15 +34,40 @@ nav a.active {
   color: #00c6fb;
 }
 
-/* Hero */
+/* -------------------------
+   Hero Section
+-------------------------- */
 .hero {
-  background: linear-gradient(135deg, #005bea, #00c6fb); /* gradient hero */
-  color: white;
+  position: relative;
   text-align: center;
+  color: white;
   padding: 100px 20px;
+  background: url('myphoto.JPG') no-repeat center top;
+  background-size: cover;
+  overflow: hidden;
 }
 
-/* Hero text */
+/* Overlay for readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* semi-transparent black overlay */
+  z-index: 0;
+}
+
+/* Hero content on top of overlay */
+.hero h1,
+.hero p,
+.hero .btn {
+  position: relative;
+  z-index: 1;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 10px;
@@ -45,15 +75,26 @@ nav a.active {
 
 .hero p {
   font-size: 1.2rem;
+  margin-bottom: 20px;
 }
 
+.hero img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 30px;
+  border: 4px solid white;
+}
+
+/* Button */
 .btn {
   display: inline-block;
   background: #ff6f61;
   color: white;
   padding: 12px 25px;
   border-radius: 6px;
-  margin-top: 20px;
+  text-decoration: none;
   transition: background 0.3s ease;
 }
 
@@ -61,17 +102,19 @@ nav a.active {
   background: #e65c50;
 }
 
-/* Section styling */
+/* -------------------------
+   Sections
+-------------------------- */
 section {
-  max-width: 1000px;          /* content width */
-  margin: 40px auto;          /* center section */
+  max-width: 1000px;
+  margin: 40px auto;
   padding: 60px 20px;
-  background: #fff;            /* white content background */
-  border-radius: 12px;         /* rounded edges */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* subtle shadow */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  text-align: center;
 }
 
-/* Section headings & paragraphs */
 section h2 {
   font-size: 2rem;
   margin-bottom: 20px;
@@ -82,15 +125,15 @@ section p {
   color: #555;
 }
 
-/* Images */
-section img,
-.about-img {
+section img {
   max-width: 100%;
   border-radius: 8px;
   margin-top: 20px;
 }
 
-/* Grid & Cards */
+/* -------------------------
+   Grid & Cards
+-------------------------- */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -100,12 +143,12 @@ section img,
 
 .card {
   background: #f9f9f9;
-  color: #333; /* dark text */
+  color: #333;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -120,24 +163,9 @@ section img,
   margin-bottom: 15px;
 }
 
-/* Forms (Hire Me) */
-.form-container {
-  width: 100%;
-  max-width: 700px;
-  height: 500px;
-  margin: auto;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.form-container iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* Floating Social Icons */
+/* -------------------------
+   Floating Social Icons
+-------------------------- */
 .social-float {
   position: fixed;
   top: 50%;
@@ -160,7 +188,28 @@ section img,
   transform: scale(1.1);
 }
 
-/* Footer */
+/* -------------------------
+   Forms (Hire Me)
+-------------------------- */
+.form-container {
+  width: 100%;
+  max-width: 700px;
+  height: 500px;
+  margin: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* -------------------------
+   Footer
+-------------------------- */
 footer {
   background: #222;
   color: white;
