@@ -1,3 +1,11 @@
+.card {
+  background: #f9f9f9;   /* light gray background */
+  color: #333;            /* dark text */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
 
 :root{
   --primary:#0d6efd;
