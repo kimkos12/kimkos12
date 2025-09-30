@@ -12,45 +12,6 @@
   </div>
 </header>
 
-  <script>
-  // ✅ Fetch projects from Django backend
-  async function loadProjects() {
-    let response = await fetch("https://your-django-backend.com/projects/");
-    let projects = await response.json();
-
-    let container = document.getElementById("projects");
-    container.innerHTML = "";
-
-    projects.forEach(p => {
-      container.innerHTML += `
-        <div class="project">
-          <h3>${p.title}</h3>
-          <p>${p.description}</p>
-          <a href="${p.link}" target="_blank">View Project</a>
-        </div>
-      `;
-    });
-  }
-
-  // ✅ Submit contact form to Django backend
-  async function submitContact(event) {
-    event.preventDefault();
-
-    let formData = new FormData(document.getElementById("contactForm"));
-
-    let response = await fetch("https://your-django-backend.com/contact/", {
-      method: "POST",
-      body: formData
-    });
-
-    let result = await response.json();
-    alert(result.status || result.error);
-  }
-
-  // Run once page loads
-  window.onload = loadProjects;
-</script>
-
 <div class="container hero">
   <div class="hero-inner">
     <div class="hero-left">
@@ -93,4 +54,44 @@
     <div>&copy; 2025 Victor Kosgei — Virtual Assistant & Data Analyst</div>
   </div>
 </footer>
+
+  <script>
+  // ✅ Fetch projects from Django backend
+  async function loadProjects() {
+    let response = await fetch("https://your-django-backend.com/projects/");
+    let projects = await response.json();
+
+    let container = document.getElementById("projects");
+    container.innerHTML = "";
+
+    projects.forEach(p => {
+      container.innerHTML += `
+        <div class="project">
+          <h3>${p.title}</h3>
+          <p>${p.description}</p>
+          <a href="${p.link}" target="_blank">View Project</a>
+        </div>
+      `;
+    });
+  }
+
+  // ✅ Submit contact form to Django backend
+  async function submitContact(event) {
+    event.preventDefault();
+
+    let formData = new FormData(document.getElementById("contactForm"));
+
+    let response = await fetch("https://your-django-backend.com/contact/", {
+      method: "POST",
+      body: formData
+    });
+
+    let result = await response.json();
+    alert(result.status || result.error);
+  }
+
+  // Run once page loads
+  window.onload = loadProjects;
+</script>
+
 </body></html>
