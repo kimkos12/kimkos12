@@ -1,4 +1,12 @@
-<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Portfolio — Victor Kosgei</title><link rel='stylesheet' href='style.css'></head><body>
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <title>Portfolio — Victor Kosgei</title>
+  <link rel='stylesheet' href='style.css'>
+</head>
+<body>
 <header class="site-header">
   <div class="container header-inner">
     <nav>
@@ -11,14 +19,20 @@
     </nav>
   </div>
 </header>
-<main class="container"><section><h2>Portfolio</h2><div class="grid">
-<div class="card"><img src="Sales.png"><h3>Sales Dashboard</h3><p>Interactive reports tracking KPIs.</p></div>
-<div class="card"><img src="Expense.png"><h3>Expense Tracker</h3><p>Custom Excel tracker for business expenses.</p></div>
-<div class="card"><img src="cert.png"><h3>VA Certificate</h3><p>Awarded in recognition of dedication and excellence in mastering essential skills for virtual assistance.</p></div>
-</div></section></main>
+
+<main class="container">
+  <section>
+    <h2>Portfolio</h2>
+    <div class="grid" id="projects">
+      <!-- ✅ Django API will inject projects here -->
+    </div>
+  </section>
+</main>
+
 <footer class="site-footer">
   <div class="container">
-    <div style="margin-bottom:10px">Connect: 
+    <div style="margin-bottom:10px">
+      Connect: 
       <a href="https://wa.me/254712859814" target="_blank">WhatsApp</a> 
       <a href="https://www.linkedin.com/in/victor-kosgei-03839b339" target="_blank">LinkedIn</a> 
       <a href="https://github.com/kimkosva" target="_blank">GitHub</a>
@@ -26,4 +40,33 @@
     <div>&copy; 2025 Victor Kosgei — Virtual Assistant & Data Analyst</div>
   </div>
 </footer>
-</body></html>
+
+<!-- ✅ Script to load projects dynamically -->
+<script>
+  async function loadProjects() {
+    try {
+      let response = await fetch("https://your-django-backend.com/projects/"); 
+      let projects = await response.json();
+
+      let container = document.getElementById("projects");
+      container.innerHTML = "";
+
+      projects.forEach(p => {
+        container.innerHTML += `
+          <div class="card">
+            <h3>${p.title}</h3>
+            <p>${p.description}</p>
+            ${p.link ? `<a href="${p.link}" target="_blank">View Project</a>` : ""}
+          </div>
+        `;
+      });
+    } catch (error) {
+      console.error("Error loading projects:", error);
+    }
+  }
+
+  window.onload = loadProjects;
+</script>
+
+</body>
+</html>
