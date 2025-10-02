@@ -1,5 +1,0 @@
-git init
-git remote add origin https://github.com/kimkosva.me/django-backend.git
-git add .
-git commit -m "Initial Django backend"
-git push -u origin main
